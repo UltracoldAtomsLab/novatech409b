@@ -2,12 +2,12 @@
 
 import time
 import math
-import logging
+#import logging
 
 import serial
 
 
-logger = logging.getLogger(__name__)
+#logger = logging.getLogger(__name__)
 
 
 class UnexpectedResponse(Exception):
@@ -144,7 +144,7 @@ class Novatech409B:
     def set_freq(self, ch_no, freq):
         """Set frequency of one channel."""
         # Novatech expects MHz
-        self._ser_send("F{:d} {:f}".format(ch_no, freq/1e6)) 
+        self._ser_send("F{:d} {:f}".format(ch_no, freq/1e6))
 
     def set_phase(self, ch_no, phase):
         """Set phase of one channel."""
