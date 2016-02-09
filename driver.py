@@ -71,7 +71,7 @@ class Novatech409B:
             self.port.write((cmd + "\r\n").encode())
             result = self.port.readline().rstrip().decode()
             if get_response:
-                logger.debug("got response from device: %s", result)
+                #logger.debug("got response from device: %s", result)
                 if result == "OK":
                     pass
                 elif result == "":
@@ -181,7 +181,7 @@ class Novatech409B:
             self.port.write(("QUE" + "\r\n").encode())
             result = self.port.readlines()
             result = [r.rstrip().decode() for r in result]
-            logger.debug("got device status: %s", result)
+            #logger.debug("got device status: %s", result)
             return result
 
     def ping(self):
@@ -191,7 +191,7 @@ class Novatech409B:
             return False
         # check that version number matches is "21"
         if stat[4][20:] == "21":
-            logger.debug("ping successful")
+            #logger.debug("ping successful")
             return True
         else:
             return False
