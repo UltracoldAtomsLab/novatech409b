@@ -195,3 +195,14 @@ class Novatech409B:
             return True
         else:
             return False
+
+    def table_write(self, i, freq0, amp0, freq1, amp1):
+        """Set table mode data of first two channels."""
+        self._ser_send('t0 %04x %08x,%04x,%04x,ff'%(i, int(freq0), 0, int(amp0)), get_response=False)
+        self._ser_send('t1 %04x %08x,%04x,%04x,ff'%(i, int(freq1), 0, int(amp1)), get_response=False)
+
+    def table_start(self):
+        self._ser_send('m t', get_response=False)
+
+    def table_next(self):
+        self._ser_send('ts', get_response=False)
