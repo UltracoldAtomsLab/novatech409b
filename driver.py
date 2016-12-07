@@ -201,8 +201,12 @@ class Novatech409B:
         self._ser_send('t0 %04x %08x,%04x,%04x,ff'%(i, int(freq0*1e7), 0, int(amp0)), get_response=False)
         self._ser_send('t1 %04x %08x,%04x,%04x,ff'%(i, int(freq1*1e7), 0, int(amp1)), get_response=False)
 
+    def table_init(self):
+        """Initialize table mode"""
+        self._ser_send('m 0', get_response=False)
+
     def table_start(self):
-        """Start the table mode."""
+        """Start table mode."""
         self._ser_send('m t', get_response=False)
 
     def table_next(self):
