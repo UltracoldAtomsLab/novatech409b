@@ -1,4 +1,5 @@
 # Written by Joe Britton, 2015
+# Revised by C.A.Chen for IAMS, 2016
 
 import time
 import math
